@@ -1,2 +1,2 @@
 # MLalgos
-This repo will have my practice using all the MLalgos
+I will be posting different ML prediction models in this repo.
