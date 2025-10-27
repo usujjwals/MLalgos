@@ -4,7 +4,7 @@ I will be posting different ML prediction models in this repo.
 # Model: Multiple linear regression 
 ## Multiple Linear Regression for Toyota Corolla Price Prediction
 
-This project is a comprehensive analysis of multiple linear regression techniques, likely originating from a chapter in the *Data Mining for Business Analytics* textbook. The goal is to predict the price of a used Toyota Corolla based on various car specifications.
+This project is a comprehensive analysis of multiple linear regression techniques. The goal is to predict the price of a used Toyota Corolla based on various car specifications.
 
 The Jupyter Notebook explores data preparation, model fitting, model validation, and advanced techniques for variable selection and regularization.
 
@@ -106,8 +106,6 @@ The performance of both models is compared to determine the most effective appro
 
 ## Model: KNN 
 ### k-NN for Personal Loan Acceptance (Universal Bank)
-
-This project is an implementation of Problem 7.2: Personal Loan Acceptance from Chapter 7 (k-Nearest Neighbors) of the book *Data Mining for Business Analytics: Concepts, Techniques, and Applications in Python*.
 
 The objective is to use the k-Nearest Neighbors (k-NN) algorithm to predict whether a customer at Universal Bank will accept a personal loan offer, based on their demographic and banking information. The analysis is performed on the `UniversalBank.csv` dataset, which includes data on 5,000 customers.
 
