@@ -11,15 +11,14 @@ This project is a data science assignment focused on analyzing eBay auction data
 
 The core of this project is the `AssignmentBaggingRF.ipynb` Jupyter Notebook. It details the entire machine learning workflow, including:
 * **Data Loading:** Importing the `eBayAuctions.csv` dataset.
-* **Data Preprocessing:** Cleaning the data, handling missing values, and encoding categorical features for modeling.
-* **Exploratory Data Analysis (EDA):** Visualizing the data to understand relationships between features and the target variable.
+* **Data Preprocessing:** encoding categorical features for modeling.
 * **Model Building:** Implementing a Bagging Classifier and a Random Forest Classifier.
 * **Model Evaluation:** Assessing the performance of the models using metrics like accuracy, precision, recall, and F1-score.
 * **Hyperparameter Tuning:** (Potentially) Optimizing the models to achieve the best performance.
 
 ### 🗂️ File Structure
 
-* `AssignmentBaggingRF.ipynb`: The main Jupyter Notebook containing all Python code and analysis.
+* `BaggingRF.ipynb`: The main Jupyter Notebook containing all Python code and analysis.
 * `eBayAuctions.csv`: The dataset used for this project, containing information about various eBay auctions.
 
 ### 📊 Dataset
