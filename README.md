@@ -1,6 +1,68 @@
 # MLalgos
 I will be posting different ML prediction models in this repo.
 
+# Model: Multiple linear regression 
+## Multiple Linear Regression for Toyota Corolla Price Prediction
+
+This project is a comprehensive analysis of multiple linear regression techniques, likely originating from a chapter in the *Data Mining for Business Analytics* textbook. The goal is to predict the price of a used Toyota Corolla based on various car specifications.
+
+The Jupyter Notebook explores data preparation, model fitting, model validation, and advanced techniques for variable selection and regularization.
+
+### 📊 Dataset
+
+The analysis is performed on the `ToyotaCorolla.csv` dataset. The notebook uses the first 1000 rows for the analysis.
+
+* **Outcome (Target Variable):** `Price`
+* **Predictors:** `Age_08_04`, `KM`, `Fuel_Type`, `HP`, `Met_Color`, `Automatic`, `CC`, `Doors`, `Quarterly_Tax`, `Weight`
+
+### 📈 Analysis & Methodology
+
+The notebook follows a structured workflow to build, evaluate, and refine a linear regression model.
+
+#### 1. Baseline Model (Tables 6.3 & 6.4)
+
+* **Data Preparation:** The categorical variable `Fuel_Type` is converted into dummy variables.
+* **Data Partitioning:** The dataset is split into a 60% training set and a 40% validation set (`random_state=1`).
+* **Model Fitting:** A standard `sklearn.linear_model.LinearRegression` model is fit to the training data.
+* **Performance Evaluation:** The model's performance is evaluated on both the **training data** (Table 6.3) and the **validation data** (Table 6.4) using key metrics:
+    * Root Mean Squared Error (RMSE)
+    * Mean Absolute Error (MAE)
+    * Mean Absolute Percentage Error (MAPE)
+    * Adjusted R-squared
+    * AIC (Akaike Information Criterion)
+    * BIC (Bayesian Information Criterion)
+
+#### 2. Residual Analysis (Figure 6.1)
+
+* The residuals (the difference between actual and predicted prices) on the validation set are calculated and plotted in a histogram to assess the model's error distribution.
+
+#### 3. Variable Selection Strategies (Tables 6.5 - 6.7)
+
+To find the optimal combination of predictors, four different variable selection methods are applied using the `dmba` library:
+
+* **Exhaustive Search:** Tests all possible combinations of predictors and identifies the best model based on adjusted R-squared (Table 6.5).
+* **Backward Elimination:** Starts with all predictors and removes them one by one, keeping the model that performs best based on AIC (Table 6.6).
+* **Forward Selection:** Starts with no predictors and adds them one by one, keeping the model that performs best based on AIC (Table 6.7).
+* **Stepwise Selection:** A combination of forward and backward selection, also based on AIC.
+
+All three AIC-based methods (Backward, Forward, Stepwise) converge on the same optimal 8-predictor model.
+
+#### 4. Regularized Regression
+
+To handle potential multicollinearity and prevent overfitting, several regularized models are fit using an `sklearn.pipeline` to first apply `StandardScaler`:
+
+* **Lasso (`Lasso`):** Performs L1 regularization.
+* **Lasso CV (`LassoCV`):** Automatically finds the best `alpha` (regularization strength) using cross-validation. The results show `LassoCV` shrinking several coefficients to zero, effectively performing feature selection.
+* **Ridge (`Ridge`):** Performs L2 regularization.
+* **Bayesian Ridge (`BayesianRidge`):** A probabilistic approach to linear regression.
+
+A final data frame compares the coefficients from the standard `LinearRegression`, `LassoCV`, and `BayesianRidge` models, clearly showing the effect of regularization.
+
+#### 5. Statistical Summary (Table 6.10)
+
+* Finally, the full 11-predictor model is fit using `statsmodels.formula.api.ols` to generate a detailed statistical summary.
+* This summary provides crucial insights not available in `sklearn`, such as the **p-value (P>|t|)** for each coefficient, allowing for an analysis of which predictors are statistically significant. The high condition number ($2.20e+06$) also suggests strong multicollinearity, reinforcing the need for variable selection or regularization.
+
 ## Model: TreeModel_rf_dt_bagging
 
 ## eBay Auction Analysis with Bagging and Random Forests
