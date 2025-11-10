@@ -76,7 +76,7 @@ Reflections
 
 Explain what boosting is (sequential trees fit residuals), how it can reduce bias, and where overfitting can arise without regularization.
 
-Note limitations (e.g., missing detailed weather/aircraft data) and how those could improve recall/precision.
+
 # Model: Multiple linear regression 
 ## Multiple Linear Regression for Toyota Corolla Price Prediction
 
