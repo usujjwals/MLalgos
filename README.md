@@ -1,12 +1,89 @@
 # MLalgos
 I will be posting different ML prediction models in this repo.
 
+# Model: Gradient Boosting Flight Delays (Classification)
+
+This project is a concise analysis of tree-based gradient boosting for predicting whether a flight is on-time or delayed using operational flight data.
+
+The Jupyter Notebook covers data preparation, feature engineering (with special handling of time fields), model fitting, validation, and interpretation with a focus on reasoning and trade-offs—not just raw accuracy.
+
+## 📊 Dataset
+
+The analysis is performed on the FlightDelays.csv dataset.
+
+Outcome (Target Variable): New_Flight_Status (derived binary delay status)
+
+Key Predictors (examples): scheduled/actual times, origin/destination, carrier/route indicators, and engineered time features (e.g., minutes since midnight, day-of-week, month). Categorical fields are encoded appropriately.
+📈 Analysis & Methodology
+
+The notebook follows a structured workflow to build, evaluate, and explain a gradient boosting classifier.
+
+1. Baseline Model
+
+Data Preparation
+
+Parse time columns (e.g., CRS_DEP_TIME, DEP_TIME) into minutes since midnight.
+
+Create New_Flight_Status from raw status.
+
+One-hot/frequency encode categorical variables; impute or drop missing values as documented.
+
+Data Partitioning
+
+Split into training (60%) and validation (40%) with random_state=1.
+
+Model Fitting
+
+Train a simple baseline (e.g., Decision Tree or Logistic Regression) to establish reference metrics.
+
+Performance Evaluation
+
+Report Accuracy, Precision, Recall, F1, and AUC on training and validation sets.
+
+Inspect confusion matrix and ROC curve for class balance and threshold behavior.
+
+2. Gradient Boosting Model
+
+Estimator
+
+GradientBoostingClassifier (scikit-learn) as the primary model.
+
+Feature Set
+
+Use engineered time features, route/airport indicators, and cleaned numeric fields.
+
+Hyperparameters
+
+Tune key knobs such as n_estimators, learning_rate, max_depth/max_leaf_nodes, and subsample (when applicable).
+
+Keep seeds fixed (random_state=1) to ensure reproducibility.
+
+Validation
+
+Compare to baseline on the same validation split; emphasize bias–variance behavior and overfitting checks (train vs. validation).
+
+3. Interpretation & Diagnostics
+
+Global Importance
+
+Plot model-based or permutation importance to identify top drivers (often departure time windows, route/airport, and scheduling patterns).
+
+Error Analysis
+
+Review confusion matrix; discuss common false positives/negatives and operational implications.
+
+Reflections
+
+Explain what boosting is (sequential trees fit residuals), how it can reduce bias, and where overfitting can arise without regularization.
+
+Note limitations (e.g., missing detailed weather/aircraft data) and how those could improve recall/precision.
 # Model: Multiple linear regression 
 ## Multiple Linear Regression for Toyota Corolla Price Prediction
 
 This project is a comprehensive analysis of multiple linear regression techniques. The goal is to predict the price of a used Toyota Corolla based on various car specifications.
 
 The Jupyter Notebook explores data preparation, model fitting, model validation, and advanced techniques for variable selection and regularization.
+
 
 ### 📊 Dataset
 
